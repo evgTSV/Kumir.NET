@@ -108,12 +108,12 @@ let ``Multiline statement test``() =
 все
 кон"""
     let expectedTokens = [|
-        KeywordAlgorithmHeader; KeywordChar; Identifier; OpenParen; KeywordAlgorithmArgument; KeywordString; Identifier; Comma; KeywordAlgorithmArgument; KeywordInt; Identifier; CloseParen; KeywordBeginAlgorithmImplementation; NewLine; NewLine
-        KeywordIf; Identifier; CloseAngleBracket; Identifier; OpenParen; Identifier; CloseParen; LogicalOr; Identifier; OpenAngleBracket; IntegerLiteral; KeywordThen; NewLine; NewLine
+        KeywordAlgorithmHeader; KeywordChar; Identifier; OpenParen; KeywordAlgorithmArgument; KeywordString; Identifier; Comma; KeywordAlgorithmArgument; KeywordInt; Identifier; CloseParen; KeywordBeginAlgorithmImplementation; NewLine
+        KeywordIf; Identifier; CloseAngleBracket; Identifier; OpenParen; Identifier; CloseParen; LogicalOr; Identifier; OpenAngleBracket; IntegerLiteral; KeywordThen; NewLine
         Identifier; Assign; Identifier; OpenParen; IntegerLiteral; CloseParen; NewLine
-        NewLine; KeywordElse; NewLine; NewLine
-        Identifier; Assign; Identifier; OpenBracket; Identifier; CloseBracket; NewLine; NewLine
-        KeywordBlockEnd; NewLine; NewLine
+        KeywordElse; NewLine
+        Identifier; Assign; Identifier; OpenBracket; Identifier; CloseBracket; NewLine
+        KeywordBlockEnd; NewLine
         KeywordEndAlgorithmImplementation; End
     |]
     testTokenization source (fun tokens ->

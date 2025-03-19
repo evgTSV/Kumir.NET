@@ -40,7 +40,7 @@ type Lexer(source:SourceFile) =
         
     member private this.getState (lexeme:char) : ReadingState =
         match lexeme with
-        | l when [|'\n'; '\r'|] |> Array.contains l -> SpecialSymbol l
+        | l when l = '\n' -> SpecialSymbol l
         | l when System.Char.IsLetter(l) || l = '_' -> Identifier(List.Empty)
         | l when System.Char.IsDigit(l) -> Number(List.Empty, false)
         | l when l = '/' && (match source.ReadChar() with | Char value -> value = '/' | _ -> false) -> Comment
@@ -131,8 +131,13 @@ type Lexer(source:SourceFile) =
                         | _ -> skip (source.MoveAndRead())
                     skip lexeme
                 | SpecialSymbol l ->
-                    this.makeToken([l], TokenType.NewLine) |> tokenStream.AddToken
-                    source.MoveAndRead() |> gotoByLexeme next
+                    match source.MoveAndRead() with
+                    | Char c when c = '\r' ->
+                            this.makeToken([c; l], TokenType.NewLine) |> tokenStream.AddToken
+                            source.MoveAndRead() |> gotoByLexeme next
+                    | c ->
+                        this.makeToken([l], TokenType.NewLine) |> tokenStream.AddToken
+                        c |> gotoByLexeme next
                                                      
             | Lexeme.End ->
                 match state with
