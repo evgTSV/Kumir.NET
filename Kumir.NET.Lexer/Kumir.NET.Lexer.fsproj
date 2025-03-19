@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="Position.fs" />
+        <Compile Include="SourceFile.fs" />
+        <Compile Include="Range.fs" />
+        <Compile Include="Location.fs" />
+        <Compile Include="Token.fs" />
+        <Compile Include="TokenStream.fs" />
+        <Compile Include="Lexer.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Kumir.NET.Syntax\Kumir.NET.Syntax.fsproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FSharp.Data.Validator" Version="9.0.2" />
+    </ItemGroup>
+
+</Project>

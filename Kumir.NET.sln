@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Kumir.NET.Compiler", "Kumir.NET.Compiler\Kumir.NET.Compiler.fsproj", "{2A7595C5-C525-4DE6-8F2F-4810DEB2C81E}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Kumir.NET.Lexer", "Kumir.NET.Lexer\Kumir.NET.Lexer.fsproj", "{CBB36007-4D72-48C4-BFEB-E4D3C57140AC}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Kumir.NET.Syntax", "Kumir.NET.Syntax\Kumir.NET.Syntax.fsproj", "{11F21712-D13B-4037-BF88-953CF738E37A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kumir.NET.Runtime", "Kumir.NET.Runtime\Kumir.NET.Runtime.csproj", "{7FF4616D-4B1C-4EFA-9C58-578A14268A6C}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Kumir.NET.Lexer.Tests", "Kumir.NET.Lexer.Tests\Kumir.NET.Lexer.Tests.fsproj", "{3117A23D-8F35-407A-A419-7C406E62945F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A7595C5-C525-4DE6-8F2F-4810DEB2C81E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A7595C5-C525-4DE6-8F2F-4810DEB2C81E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A7595C5-C525-4DE6-8F2F-4810DEB2C81E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A7595C5-C525-4DE6-8F2F-4810DEB2C81E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBB36007-4D72-48C4-BFEB-E4D3C57140AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBB36007-4D72-48C4-BFEB-E4D3C57140AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBB36007-4D72-48C4-BFEB-E4D3C57140AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBB36007-4D72-48C4-BFEB-E4D3C57140AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11F21712-D13B-4037-BF88-953CF738E37A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11F21712-D13B-4037-BF88-953CF738E37A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11F21712-D13B-4037-BF88-953CF738E37A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11F21712-D13B-4037-BF88-953CF738E37A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FF4616D-4B1C-4EFA-9C58-578A14268A6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FF4616D-4B1C-4EFA-9C58-578A14268A6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FF4616D-4B1C-4EFA-9C58-578A14268A6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FF4616D-4B1C-4EFA-9C58-578A14268A6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3117A23D-8F35-407A-A419-7C406E62945F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3117A23D-8F35-407A-A419-7C406E62945F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3117A23D-8F35-407A-A419-7C406E62945F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3117A23D-8F35-407A-A419-7C406E62945F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
