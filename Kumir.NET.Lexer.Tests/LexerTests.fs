@@ -34,7 +34,7 @@ let AssignNewVariablesTest (tokens:TokenStream) (definedType:TokenType) (value:T
 [<InlineData("цел ЧИСЛО:= 10 ")>]
 [<InlineData("цел ЧИСЛО_:= 10")>]
 [<InlineData("цел _ЧИСЛО:=10")>]
-[<InlineData("цел май_число :=  10  // майЧисло")>]
+[<InlineData("цел май_число :=  10  | майЧисло")>]
 let ``Integer literal assign new variables test`` (source:string) =
     testTokenization source (fun tokens ->
         AssignNewVariablesTest tokens TokenType.KeywordInt TokenType.IntegerLiteral)
@@ -56,7 +56,7 @@ let ``Negative int literal test`` (source:string) =
 [<InlineData("вещ Число:= 10.3 ")>]
 [<InlineData("вещ ЧИСЛО_:= 10.0")>]
 [<InlineData("вещ _число:=1,0")>]
-[<InlineData("вещ моё_число :=  0,10 // тут_моё_число")>]
+[<InlineData("вещ моё_число :=  0,10 | тут_моё_число")>]
 let ``Real number literal assign new variables test`` (source:string) =
     testTokenization source (fun tokens ->
         AssignNewVariablesTest tokens TokenType.KeywordFloat TokenType.RealNumberLiteral)
@@ -66,7 +66,7 @@ let ``Real number literal assign new variables test`` (source:string) =
 [<InlineData("лит НиткаГлаголовая:= \"Ку, Мир!\" ")>]
 [<InlineData("лит НиткаГлаголовая_:= \"Ку, Мир!\"")>]
 [<InlineData("лит _НиткаГлаголовая:=\"Ку, Мир!\"")>]
-[<InlineData("лит ___Нитка_Глаголовая___ :=  \"Ку, Мир!\"  // продам гараж 88005553535")>]
+[<InlineData("лит ___Нитка_Глаголовая___ :=  \"Ку, Мир!\"  | продам гараж 88005553535")>]
 let ``String literal assign new variables test`` (source:string) =
     testTokenization source (fun tokens ->
         AssignNewVariablesTest tokens TokenType.KeywordString TokenType.StringLiteral)
@@ -76,7 +76,7 @@ let ``String literal assign new variables test`` (source:string) =
 [<InlineData("сим ГЛАГОЛ:= '\n' ")>]
 [<InlineData("сим ГЛАГОЛ_:= '\025'")>]
 [<InlineData("сим _ГЛАГОЛ:='a'")>]
-[<InlineData("сим мой_ГЛАГОЛ :=  'A'  // мойГЛАГОЛ")>]
+[<InlineData("сим мой_ГЛАГОЛ :=  'A'  | мойГЛАГОЛ")>]
 let ``Char literal assign new variables test`` (source:string) =
     testTokenization source (fun tokens ->
         AssignNewVariablesTest tokens TokenType.KeywordChar TokenType.CharLiteral)
@@ -86,15 +86,15 @@ let ``Char literal assign new variables test`` (source:string) =
 [<InlineData("Точка новая:= старая ")>]
 [<InlineData("Точка новая_:= старая")>]
 [<InlineData("Точка _новая:=старая")>]
-[<InlineData("Точка мая_новая :=  старая  // новая <== старая")>]
+[<InlineData("Точка мая_новая :=  старая  | новая <== старая")>]
 let ``Custom type assign variables test`` (source:string) =
     testTokenization source (fun tokens ->
         AssignNewVariablesTest tokens TokenType.Identifier TokenType.Identifier)
     
 [<Theory>]
-[<InlineData("//проигнорено")>]
-[<InlineData("// проигнорено")>]
-[<InlineData("//")>]
+[<InlineData("| проигнорено")>]
+[<InlineData("| проигнорено")>]
+[<InlineData("|")>]
 let ``Ignore comment lexemes test`` (source:string) =
     testTokenization source Assert.Single
 

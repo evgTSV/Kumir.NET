@@ -43,7 +43,7 @@ type Lexer(source:SourceFile) =
         | l when l = '\n' -> SpecialSymbol l
         | l when System.Char.IsLetter(l) || l = '_' -> Identifier(List.Empty)
         | l when System.Char.IsDigit(l) -> Number(List.Empty, false)
-        | l when l = '/' && (match source.ReadChar() with | Char value -> value = '/' | _ -> false) -> Comment
+        | l when l = '|' -> Comment
         | '"' -> StringLiteral(List.Empty)
         | ''' -> CharLiteral(List.Empty)
         | l when System.Char.IsSymbol(l) -> Operator(List.Empty)
