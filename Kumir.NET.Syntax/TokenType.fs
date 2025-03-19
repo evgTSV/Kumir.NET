@@ -146,6 +146,8 @@ type TokenType =
     | ShortIntegerLiteral
     /// float literal
     | RealNumberLiteral
+    /// boolean literal
+    | BooleanLiteral
     
     // Keywords
     /// 'знак' keyword
@@ -237,13 +239,6 @@ type TokenType =
     /// 'нс' keyword (new line symbol)
     | KeywordNewLine
 
-    /// 'не' keyword (logical 'not')
-    | KeywordNot
-    /// 'и' keyword (logical 'and')
-    | KeywordAnd
-    /// 'или' keyword (logical 'or')
-    | KeywordOr
-
     /// 'цел' keyword (integer type name)
     | KeywordInt
     /// 'вещ' keyword (floating point type name)
@@ -261,8 +256,3 @@ type TokenType =
     | KeywordBeginModule
     /// 'использовать' keyword (use module)
     | KeywordUseModule
-
-    /// 'да' keyword (true constant value)
-    | KeywordTrue
-    /// 'нет' keyword (false constant value)
-    | KeywordFalse

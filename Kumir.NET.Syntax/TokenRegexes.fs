@@ -36,7 +36,7 @@ module TokenRegexes =
         let isReal, _ = Double.TryParse(literal, CultureInfo.InvariantCulture)
         isReal
         
-    let private booleanLiteral(literal:string) = literal = "истина" || literal = "ложь"
+    let private booleanLiteral(literal:string) = literal = "да" || literal = "нет"
 
     let findMatchToken(lexeme:string) =
         match lexeme with
@@ -108,6 +108,7 @@ module TokenRegexes =
             | l when int32Number l -> IntegerLiteral
             | l when int64Number l -> LongIntegerLiteral
             | l when realNumber l -> RealNumberLiteral
+            | l when booleanLiteral l -> BooleanLiteral
             
             | l when identifier l ->
                 match l with
@@ -153,9 +154,6 @@ module TokenRegexes =
                 | "Фввод" -> KeywordFileInput
                 | "Фвывод" -> KeywordFileOutput
                 | "нс" -> KeywordNewLine
-                | "не" -> KeywordNot
-                | "и" -> KeywordAnd
-                | "или" -> KeywordOr
                 | "цел" -> KeywordInt
                 | "вещ" -> KeywordFloat
                 | "сим" -> KeywordChar
@@ -164,8 +162,6 @@ module TokenRegexes =
                 | "таб" -> KeywordArray
                 | "исп" -> KeywordBeginModule
                 | "использовать" -> KeywordUseModule
-                | "да" -> KeywordTrue
-                | "нет" -> KeywordFalse
                 | _ -> Identifier
             
             | _ -> Unknown

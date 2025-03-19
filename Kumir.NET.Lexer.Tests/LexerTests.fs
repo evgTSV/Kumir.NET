@@ -82,6 +82,16 @@ let ``Char literal assign new variables test`` (source:string) =
         AssignNewVariablesTest tokens TokenType.KeywordChar TokenType.CharLiteral)
     
 [<Theory>]
+[<InlineData("лог булеан := да")>]
+[<InlineData("лог БУЛЕАН:= нет ")>]
+[<InlineData("лог БУЛЕАН_:= да")>]
+[<InlineData("лог _БУЛЕАН:=нет")>]
+[<InlineData("лог мой_БУЛЕАН :=  да  | мойЛОГ")>]
+let ``Boolean literal assign new variables test`` (source:string) =
+    testTokenization source (fun tokens ->
+        AssignNewVariablesTest tokens TokenType.KeywordBool TokenType.BooleanLiteral)
+    
+[<Theory>]
 [<InlineData("Точка новая := старая")>]
 [<InlineData("Точка новая:= старая ")>]
 [<InlineData("Точка новая_:= старая")>]
